@@ -3,6 +3,7 @@ import { useState } from "react";
 import {useFetchSpacialNewsQuery } from "../app/features/News/NewsSlice"
 import TextSlice from "../utlits/TextSlice"
 import INews from "../interfaces/News";
+import { Loading } from "../ui/Loading";
 const newsCategories = [
   'general',
   'business',
@@ -15,7 +16,7 @@ const newsCategories = [
 const News = () => {
   const [selectedCategory, setSelectedCategory] = useState('general');
   const { data, isLoading } = useFetchSpacialNewsQuery({ category: selectedCategory });
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading/>;
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
   };

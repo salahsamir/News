@@ -1,5 +1,6 @@
 
 import { useFetchLatestRatesQuery } from "../../app/features/Currency/CurrencySlice";
+import { Loading } from "../../ui/Loading";
 
 import CurrencyChart from "./Chart";
 
@@ -10,7 +11,7 @@ export default function Currency() {
     const { data, isLoading, error } = useFetchLatestRatesQuery();
 
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Loading/>;
  
    
   return (
