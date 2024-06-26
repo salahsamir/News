@@ -11,9 +11,11 @@ import { useFetchLatestRatesQuery } from '../../app/features/Currency/CurrencySl
 
 const CurrencyChart = () => {
   const { data, isLoading, error } = useFetchLatestRatesQuery();
-
+  
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
+
+  console.log(data);
 
   // Transform data into chart format
   const chartData = Object.keys(data).map((currency) => ({

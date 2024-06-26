@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import currencyapi from '@everapi/currencyapi-js';
 
 // Initialize the client with your API key
-const API_KEY = 'cur_live_0eUT8x7OdBA1aDyT9oQndwOnbuHcCAwV2vsHZWlt';
+const API_KEY = 'cur_live_xxeqgMUPZZBSgwNsoomzCz11ezi2gBCOAMWWpubP';
 
 // Define the base URL (not required for custom client)
 const BASE_URL = '/';
@@ -15,18 +15,18 @@ export const CurrencyApiSlice = createApi({
     fetchLatestRates: builder.query({
       query: () => 'latest?base=USD&symbols=EGP',
     }),
-    // fetchHistoricalRates: builder.query({
-    //   queryFn: async ({ date }) => {
-    //     const client = new currencyapi(API_KEY);
-    //     try {
-    //       const response = await client.historical({ date });
-    //       return { data: response };
-    //     } catch (error) {
-    //       return { error: { status: 'CUSTOM_ERROR', message: error.message } };
-    //     }
-    //   },
-    // }),
+    fetchHistoricalRates: builder.query({
+      queryFn: async ({ date }) => {
+        const client = new currencyapi(API_KEY);
+        try {
+          const response = await client.historical({ date });
+          return { data: response };
+        } catch (error) {
+          return { error: { status: 'CUSTOM_ERROR', message: error.message } };
+        }
+      },
+    }),
   }),
 });
 
-export const { useFetchLatestRatesQuery } = CurrencyApiSlice;
+export const { useFetchLatestRatesQuery, useFetchHistoricalRatesQuery } = CurrencyApiSlice;
