@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 import { NewsApiSlice } from './features/News/NewsSlice'
 import { GoldApiSlice } from './features/Gold/GoldSlice'
+import { CurrencyApiSlice } from './features/Currency/CurrencySlice'
 
 export const store = configureStore({
     ///root reducer
@@ -9,11 +10,12 @@ export const store = configureStore({
    
     [NewsApiSlice.reducerPath]:NewsApiSlice.reducer,
     [GoldApiSlice.reducerPath]:GoldApiSlice.reducer,
+    [CurrencyApiSlice.reducerPath]:CurrencyApiSlice.reducer
   },
   middleware:getDefaultMiddleware=>
     getDefaultMiddleware({
       serializableCheck: false
-    }).concat(NewsApiSlice.middleware,GoldApiSlice.middleware)
+    }).concat(NewsApiSlice.middleware,GoldApiSlice.middleware,CurrencyApiSlice.middleware)
 })
 
 

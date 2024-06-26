@@ -1,4 +1,4 @@
-
+import React from 'react';
 import {
   Card,
   CardBody,
@@ -7,29 +7,24 @@ import {
 } from "@material-tailwind/react";
 import Chart from "react-apexcharts";
 import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
-import { useFetchGoldPricesQuery } from "../app/features/Gold/GoldSlice";
+import { useFetchLatestRatesQuery } from '../../app/features/Currency/CurrencySlice';
 
-
-const Gold = () => {
-  const { data, isLoading, error } = useFetchGoldPricesQuery();
-  
+const CurrencyChart = () => {
+  const { data, isLoading, error } = useFetchLatestRatesQuery();
 
   if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
-  const chartData = [
-    data.price_gram_24k,
-    data.price_gram_22k,
-    data.price_gram_21k,
-    data.price_gram_18k,
-    data.price_gram_16k,
-    data.price_gram_14k,
-    data.price_gram_10k,
-  ];
+  // Transform data into chart format
+  const chartData = Object.keys(data).map((currency) => ({
+    x: currency,
+    y: data[currency].value,
+  }));
 
   const chartConfig = {
     type: "bar",
     height: 400,
-    series: [{ name: "Price per Gram (EGP)", data: chartData }],
+    series: [{ name: "Exchange Rate (USD to Other Currencies)", data: chartData }],
     options: {
       chart: { toolbar: { show: false } },
       dataLabels: { enabled: false },
@@ -39,7 +34,6 @@ const Gold = () => {
         axisTicks: { show: false },
         axisBorder: { show: false },
         labels: { style: { colors: "#616161", fontWeight: 400 } },
-        categories: ["24K", "22K", "21K", "18K", "16K", "14K", "10K"],
       },
       yaxis: { labels: { style: { colors: "#616161", fontWeight: 400 } } },
       grid: { show: true, borderColor: "#dddddd", strokeDashArray: 5 },
@@ -49,7 +43,6 @@ const Gold = () => {
   };
 
   return (
-    
     <Card className="my-5">
       <CardHeader
         floated={false}
@@ -62,10 +55,10 @@ const Gold = () => {
         </div>
         <div>
           <Typography variant="h6" color="gray">
-            Gold Prices
+            Currency Exchange Rates
           </Typography>
           <Typography variant="h3" color="black">
-            EGP per Gram
+            USD to Other Currencies
           </Typography>
         </div>
       </CardHeader>
@@ -76,4 +69,4 @@ const Gold = () => {
   );
 };
 
-export default Gold
+export default CurrencyChart;

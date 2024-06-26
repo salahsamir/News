@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // Define the API key and base URL
-const API_KEY = 'goldapi-g3pvrfslxt2e4xk-io';
+const API_KEY = 'goldapi-vskn7slxv6yfg7-io';
 const BASE_URL = 'https://www.goldapi.io/api';
 
 // Create the Gold API slice
