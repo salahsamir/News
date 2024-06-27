@@ -1,2 +1,3 @@
 
-export const NewsAPIkey='26681bca804644d586e20d6b63c2b42e'
+export const Currency_Api_KEY='cur_live_xxeqgMUPZZBSgwNsoomzCz11ezi2gBCOAMWWpubP'
+export const Gold_Api_KEY='goldapi-vskn7slxv6yfg7-io'

@@ -38,26 +38,26 @@ const ChartsUi=({chartData,categories,name,title}:IProps)=> {
   };
   return (
     <div>
-       <Card className="my-5 p-4">
+       <Card className="my-2 p-2">
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
         className="flex flex-col gap-4 rounded-none md:flex-row md:items-center"
       >
-        <div className="w-max rounded-lg bg-blue-700 p-5 my-5 text-white">
-          <Square3Stack3DIcon className="h-6 w-6" />
+        <div className="w-max rounded-lg bg-blue-700 p-2 my-2 text-white">
+          <Square3Stack3DIcon className="h-4 w-4" />
         </div>
         <div>
           <Typography variant="h6" color="gray">
             {name}
           </Typography>
-          <Typography variant="h3" color="black">
+          <Typography variant="h4" color="black">
            {title}
           </Typography>
         </div>
       </CardHeader>
-      <CardBody className="px-2 py-5">
+      <CardBody className="px-1 py-1">
         <Chart {...chartConfig} />
       </CardBody>
     </Card>

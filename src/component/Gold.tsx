@@ -21,20 +21,20 @@ const Gold = () => {
   };
 
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-2">
       <ChartsUi
         chartData={Object.values(goldPrices)}
         categories={Object.keys(goldPrices)}
         name="Gold Prices"
         title="EGP per Gram"
       />
-      <div className="m-5 shadow-lg p-5">
+      <div className="m-4 shadow-lg p-5">
         {Object.entries(goldPrices).map(([category, price]) => (
-          <div className="flex gap-4 justify-around" key={category}>
-            <h4 className="text-5xl font-semibold py-3">
+          <div className="flex gap-5 justify-around" key={category}>
+            <h4 className="text-3xl font-semibold py-3">
               {category}:
             </h4>
-            <h4 className="text-5xl font-semibold py-3 text-blue-700">
+            <h4 className="text-3xl font-semibold py-3 text-blue-700">
               {price.toFixed(2)} <span className="text-black">EGP</span>
             </h4>
           </div>

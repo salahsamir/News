@@ -1,7 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Gold_Api_KEY } from '../../../assets/Const';
+
 
 // Define the API key and base URL
-const API_KEY = 'goldapi-vskn7slxv6yfg7-io';
+// const API_KEY = 'goldapi-vskn7slxv6yfg7-io';
 const BASE_URL = 'https://www.goldapi.io/api';
 
 // Create the Gold API slice
@@ -10,7 +12,7 @@ export const GoldApiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
-      headers.set('x-access-token', API_KEY);
+      headers.set('x-access-token', Gold_Api_KEY);
       headers.set('Content-Type', 'application/json');
       return headers;
     },

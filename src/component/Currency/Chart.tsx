@@ -4,7 +4,7 @@ import ChartsUi from '../../ui/ChartsUi';
 
 const CurrencyChart = () => {
   const { data, isLoading, error } = useFetchHistoricalRatesQuery({
-     date: '2023-06-26'
+     date: '2024-06-26'
   })
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

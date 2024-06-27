@@ -23,18 +23,18 @@ const News = () => {
 
   
 const ArticleCard = ({ article }: { article: INews }) => (
-  <div className="bg-white rounded-lg shadow-lg p-3 cursor-pointer" onClick={() => window.open(article.url, '_blank')}>
+  <div className="bg-white rounded-lg shadow-lg p-2 cursor-pointer" onClick={() => window.open(article.url, '_blank')}>
     <div className="overflow-hidden">
       <img
         src={article.urlToImage ?? ''}
         alt={article.title}
-        className="object-cover w-full h-80 rounded-lg hover:scale-110"
+        className="object-cover w-full h-56 rounded-lg hover:scale-110"
       />
     </div>
-    <div className="mt-3 p-3">
+    <div className="mt-1 p-1">
       <p className="text-sm opacity-75">{article.source.name}</p>
-      <h3 className="text-3xl font-semibold py-3"><TextSlice text={article.title} /></h3>
-      <p className="text-slate-500 py-3">{article.description}</p>
+      <h3 className="text-2xl font-semibold py-1"><TextSlice text={article.title} /></h3>
+      <p className="text-slate-500 py-1">{article.description}</p>
     </div>
   </div>
 );
@@ -48,7 +48,7 @@ const ArticleCard = ({ article }: { article: INews }) => (
           <button
             key={index}
             onClick={() => handleCategoryChange(category)}
-            className="bg-slate-800 text-white text-2xl px-3 py-3 rounded-lg m-1"
+            className="bg-slate-800 text-white text-2xl px-2 py-2 rounded-lg m-1 hover:bg-slate-600 hover:scale-105"
           >
             {category}
           </button>
