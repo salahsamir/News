@@ -38,7 +38,7 @@ const ChartsUi=({chartData,categories,name,title}:IProps)=> {
   };
   return (
     <div>
-       <Card className="my-5">
+       <Card className="my-5 p-4">
       <CardHeader
         floated={false}
         shadow={false}
