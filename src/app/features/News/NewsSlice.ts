@@ -9,10 +9,9 @@ export const NewsApiSlice=createApi({
   reducerPath: "News",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-   
     fetchSpacialNews: builder.query({
-      query: () => ({
-        url: `?country=us&apiKey=${API_KEY}`,
+      query: ({ category }) => ({
+        url: `?country=us&apiKey=${API_KEY}&category=${category}`,
       }),
     }),
   
