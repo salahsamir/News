@@ -22,10 +22,30 @@ const Gold = () => {
   ];
 
   let categories= ["24K", "22K", "21K", "18K", "16K", "14K", "10K"]
+  
 
   return (
 
-   <ChartsUi chartData={chartData} categories={categories} name=' Gold Prices' title=" EGP per Gram" />
+  <>
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-3">
+
+  <ChartsUi chartData={chartData} categories={categories} name=' Gold Prices' title=" EGP per Gram" />
+    <div className="m-5 shadow-lg p-5 ">
+      {categories.map((category, index) => (
+        <div className="flex gap-4  justify-around">
+          <h4 key={index} className="text-5xl font-semibold py-3  ">{category}:</h4>
+          <h4 className="text-5xl font-semibold py-3 text-blue-700">{chartData[index].toFixed(2)} <span className="text-black"> EGP</span></h4>
+          <b/>
+        </div>
+
+        
+
+      ))}
+    </div>
+
+    </div>
+
+  </>
   );
 };
 

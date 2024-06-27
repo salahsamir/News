@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import {useFetchSpacialNewsQuery } from "../app/features/News/NewsSlice"
-import TextSlice from "../utlits/TextSlice"
+import TextSlice from "../utlts/TextSlice"
 import INews from "../interfaces/News";
 import { Loading } from "../ui/Loading";
 const newsCategories = [
@@ -42,8 +42,8 @@ const ArticleCard = ({ article }: { article: INews }) => (
  
 
   return (
-    <div className="m-3 p-3">
-      <div className="text-center my-3">
+    <div className="">
+      <div className="text-center">
         {newsCategories.map((category, index) => (
           <button
             key={index}
@@ -54,7 +54,7 @@ const ArticleCard = ({ article }: { article: INews }) => (
           </button>
         ))}
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
         {data?.articles.slice(0, 6).map((article: INews, index: number) =>(
           <ArticleCard key={index} article={article}  />
         ))}
