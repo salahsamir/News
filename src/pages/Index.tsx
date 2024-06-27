@@ -1,6 +1,6 @@
 import Currency from "../component/Currency/Currency";
 import Gold from "../component/Gold";
-import News from "../component/News"
+
 export default function Index() {
   return (
     <>
