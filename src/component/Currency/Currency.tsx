@@ -7,7 +7,7 @@ import ConvertedAmount from "./ConvertedAmount";
 
 
 export default function Currency() {
-  const { data, isLoading, error } = useFetchLatestRatesQuery();
+  const { data, isLoading } = useFetchLatestRatesQuery();
 
   if (isLoading) return <Loading />;
   return (

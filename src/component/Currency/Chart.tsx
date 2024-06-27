@@ -14,7 +14,7 @@ const CurrencyChart = () => {
     data.data.EGP.value,
     data.data.USD.value,
   ]
-  let categories= ["EGP", "USD"]
+  const categories= ["EGP", "USD"]
 
  
   return (

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import currencyapi from '@everapi/currencyapi-js';
+
 import { Currency_Api_KEY } from '../../../assets/Const';
 
 
@@ -7,8 +7,7 @@ import { Currency_Api_KEY } from '../../../assets/Const';
 
 const BASE_URL = 'https://api.currencyapi.com/v3';
 
-// Initialize the client with your API key
-const client = new currencyapi(Currency_Api_KEY);
+
 
 // Create the Currency API slice using RTK Query
 export const CurrencyApiSlice = createApi({
