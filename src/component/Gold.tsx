@@ -2,13 +2,17 @@
            
 import { useFetchGoldPricesQuery } from "../app/features/Gold/GoldSlice";
 import ChartsUi from "../ui/ChartsUi";
+import Error from "../ui/Error";
 import { Loading } from "../ui/Loading";
 
 
 const Gold = () => {
-  const { data, isLoading } = useFetchGoldPricesQuery();
+  const { data, isLoading,error } = useFetchGoldPricesQuery();
+ 
 
   if (isLoading) return <Loading />;
+
+  if (error) return <Error/>;
 
   const goldPrices = {
     '24K': data.price_gram_24k,

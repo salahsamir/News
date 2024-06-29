@@ -1,14 +1,17 @@
 
 
 import { useFetchLatestRatesQuery } from "../../app/features/Currency/CurrencySlice";
+import Error from "../../ui/Error";
 import { Loading } from "../../ui/Loading";
 import CurrencyChart from "./Chart";
 import ConvertedAmount from "./ConvertedAmount";
 
 export default function Currency() {
-  const { data, isLoading } = useFetchLatestRatesQuery();
+  const { data, isLoading,error } = useFetchLatestRatesQuery();
 
+  
   if (isLoading) return <Loading />;
+  if (error) return <Error/>;
   return (
     <div className="grid grid-cols-2">
       <div className="p-5 flex  justify-center items-center">

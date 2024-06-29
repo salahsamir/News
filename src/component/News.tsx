@@ -4,6 +4,7 @@ import {useFetchSpacialNewsQuery } from "../app/features/News/NewsSlice"
 import TextSlice from "../utlts/TextSlice"
 import INews from "../interfaces/News";
 import { Loading } from "../ui/Loading";
+import Error from "../ui/Error";
 const newsCategories = [
   'general',
   'business',
@@ -14,9 +15,14 @@ const newsCategories = [
   'technology',
 ];
 const News = () => {
+
   const [selectedCategory, setSelectedCategory] = useState('general');
-  const { data, isLoading } = useFetchSpacialNewsQuery({ category: selectedCategory });
+
+  const { data, isLoading,error } = useFetchSpacialNewsQuery({ category: selectedCategory });
+
   if (isLoading) return <Loading/>;
+
+  if (error) return <Error/>;
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
   };
@@ -39,11 +45,13 @@ const ArticleCard = ({ article }: { article: INews }) => (
   </div>
 );
 
+
  
 
   return (
     <div className="">
-      <div className="text-center">
+        {/* ///button Category */}
+      <div className="text-center pb-2">
         {newsCategories.map((category, index) => (
           <button
             key={index}
@@ -54,6 +62,8 @@ const ArticleCard = ({ article }: { article: INews }) => (
           </button>
         ))}
       </div>
+
+      {/* ///display 6 items in grid */}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
         {data?.articles.slice(0, 6).map((article: INews, index: number) =>(
           <ArticleCard key={index} article={article}  />
