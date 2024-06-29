@@ -8,7 +8,6 @@ import Error from "../ui/Error";
 const newsCategories = [
   'general',
   'business',
-  'entertainment',
   'health',
   'science',
   'sports',
@@ -21,8 +20,8 @@ const News = () => {
   const { data, isLoading,error } = useFetchSpacialNewsQuery({ category: selectedCategory });
 
   if (isLoading) return <Loading/>;
-
   if (error) return <Error/>;
+  
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
   };
@@ -56,7 +55,7 @@ const ArticleCard = ({ article }: { article: INews }) => (
           <button
             key={index}
             onClick={() => handleCategoryChange(category)}
-            className="bg-slate-800 text-white text-2xl px-2 py-2 rounded-lg m-1 hover:bg-slate-600 hover:scale-105"
+            className="bg-slate-800 text-white px-2 py-2 rounded-lg m-1 hover:bg-slate-600 hover:scale-105"
           >
             {category}
           </button>

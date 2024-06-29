@@ -1,13 +1,14 @@
 
 import { useFetchHistoricalRatesQuery } from '../../app/features/Currency/CurrencySlice';
 import ChartsUi from '../../ui/ChartsUi';
+import Error from '../../ui/Error';
 
 const CurrencyChart = () => {
   const { data, isLoading, error } = useFetchHistoricalRatesQuery({
      date: '2024-06-26'
   })
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <Error/>;
  
 
   const chartData = [

@@ -13,7 +13,7 @@ export default function Currency() {
   if (isLoading) return <Loading />;
   if (error) return <Error/>;
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-1 md:grid-cols-2">
       <div className="p-5 flex  justify-center items-center">
         <div className="bg-slate-200 rounded-md shadow-lg p-3 text-center">
           {data && (
